@@ -1,0 +1,4 @@
+@charset "ISO-8859-1";
+.ordertable{border:1px black solid; padding:5px}
+.ordertablerow{background-color:#ffc300}
+.ordertableodd{background-color:#A9A9A9}

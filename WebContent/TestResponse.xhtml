@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title><ui:insert name="JSF Response Page">JSF Response Page</ui:insert></title>
+</h:head> 
+<body> 
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">JSF Form Page</ui:define>
+	<ui:define name="content">
+		<div align="center">
+		<p>Hello #{user.firstName} #{user.lastName}. Your orders are:</p>
+		
+		<h:dataTable value="#{formController.service.orders}" var="o" styleClass="ordertable" headerClass="ordertablerow" rowClasses="ordertableodd, ordertableeven">
+			<h:column>
+				<f:facet name="header">Order number</f:facet>
+				#{o.orderNo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Product name</f:facet>
+				#{o.productName}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+				#{o.price}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Quantity</f:facet>
+				#{o.quantity}
+			</h:column>
+		</h:dataTable>
+		
+		<h:button value="Back" outcome="TestForm.xhtml" />
+		</div>
+	
+	</ui:define>
+	</ui:composition>
+</body> 
+
+</html>
